@@ -1,0 +1,14 @@
+/* Fixed-layout component */
+section {
+  margin-top: 30px;
+}
+h2 {
+  font-size: var(--fz-20);
+}
+h3 {
+  font-size: var(--fz-24);
+}
+/* End of Fixed-layout component */
+/* Media Queries if needed */
+
+/* End of Media Queries */
