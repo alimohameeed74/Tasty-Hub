@@ -1,0 +1,37 @@
+/* Navbar component */
+.navbar {
+  --bs-navbar-color: white;
+  padding-block: var(--one-rem);
+  --bs-navbar-hover-color: white;
+  --bs-navbar-active-color: white;
+  --bs-navbar-brand-font-size: var(--one-rem);
+  --bs-navbar-brand-color: #bdc8bf;
+  --bs-navbar-brand-hover-color: white;
+  background-color: #212529 !important;
+}
+.navbar-toggler-icon {
+  background-image: url('data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAzMCAzMCc+PHBhdGggc3Ryb2tlPSd3aGl0ZScgc3Ryb2tlLXdpZHRoPScyJyBzdHJva2UtbGluZWNhcD0ncm91bmQnIHN0cm9rZS1taXRlcmxpbWl0PScxMCcgZD0nTTQgN2gyMk00IDE1aDIyTTQgMjNoMjInLz48L3N2Zz4=');
+}
+
+.navbar-toggler {
+  color: transparent;
+  border: var(--bs-border-width) solid white;
+}
+
+.nav-link {
+  padding-inline: 20px;
+  display: inline-block;
+}
+.navbar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+/* End of navbar component */
+/* Media Queries if needed */
+@media (min-width: 992px) {
+  .navbar ul {
+    border-color: transparent !important;
+  }
+}
+/* End of Media Queries */

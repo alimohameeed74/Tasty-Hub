@@ -1,3 +1,59 @@
-<p>
-  nav-bar works!
-</p>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container">
+    <a class="navbar-brand" routerLink="home">
+      <img src="image.png" alt="Website logo" />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto my-3 my-lg-0 border border-secondary rounded-3">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            routerLinkActive="rounded-3 bg-success text-white"
+            routerLink="home"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="rounded-3 bg-success text-white" routerLink="about"
+            >About</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            routerLinkActive="rounded-3 bg-success text-white"
+            routerLink="meals"
+            >Meals</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="rounded-3 bg-success text-white" routerLink="team"
+            >Team</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="rounded-3 bg-success text-white"
+            routerLink="contacts"
+            >Contacts</a
+          >
+        </li>
+      </ul>
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </div>
+  </div>
+</nav>
