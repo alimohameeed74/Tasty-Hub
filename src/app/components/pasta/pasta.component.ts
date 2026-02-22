@@ -1,38 +1,40 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { IrecipeRes } from '../../models/Irecipe-res.js';
 import { Irecipe } from '../../models/Irecipe.js';
 import { RecipeService } from '../../services/recipe.service.js';
 import { ActivatedRoute } from '@angular/router';
+import { LoaderComponent } from '../loader/loader.component';
+import { EmptyContentComponent } from '../empty-content/empty-content.component';
 
 @Component({
   selector: 'app-pasta',
   templateUrl: './pasta.component.html',
   styleUrls: ['./pasta.component.css'],
-  imports: [],
+  imports: [LoaderComponent, EmptyContentComponent],
 })
 export class PastaComponent implements OnInit {
   cardsRes: IrecipeRes | null;
-  cards: Irecipe[];
+  isloading: boolean;
+  cards = signal<Irecipe[]>([]);
   constructor(private recipeService: RecipeService) {
     this.cardsRes = null;
-    this.cards = [];
+    this.isloading = true;
   }
 
   ngOnInit() {
     this.loadData();
-    this.cards = JSON.parse(sessionStorage.getItem('pastaData')!);
   }
 
   loadData() {
+    this.isloading = true;
     this.recipeService.getAll('pasta').subscribe({
       next: (res: any) => {
-        this.cardsRes = res;
-        const data = res.data.recipes;
-        sessionStorage.setItem('pastaData', JSON.stringify(data));
+        this.isloading = false;
+        this.cards.set(res.data.recipes);
       },
-      error: (err) => {
-        this.cardsRes = null;
-        this.cards = [];
+      error: () => {
+        this.isloading = false;
+        this.cards.set([]);
       },
     });
   }

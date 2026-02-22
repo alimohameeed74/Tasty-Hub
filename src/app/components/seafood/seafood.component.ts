@@ -1,36 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { IrecipeRes } from '../../models/Irecipe-res.js';
 import { RecipeService } from '../../services/recipe.service.js';
 import { Irecipe } from '../../models/Irecipe.js';
+import { LoaderComponent } from '../loader/loader.component';
+import { EmptyContentComponent } from '../empty-content/empty-content.component';
 
 @Component({
   selector: 'app-seafood',
   templateUrl: './seafood.component.html',
   styleUrls: ['./seafood.component.css'],
+  imports: [LoaderComponent, EmptyContentComponent],
 })
 export class SeafoodComponent implements OnInit {
   cardsRes: IrecipeRes | null;
-  cards: Irecipe[];
+  isloading: boolean;
+  cards = signal<Irecipe[]>([]);
   constructor(private recipeService: RecipeService) {
     this.cardsRes = null;
-    this.cards = [];
+    this.isloading = true;
   }
 
   ngOnInit() {
     this.loadData();
-    this.cards = JSON.parse(sessionStorage.getItem('seafoodData')!);
   }
 
   loadData() {
+    this.isloading = true;
     this.recipeService.getAll('seafood').subscribe({
       next: (res: any) => {
-        this.cardsRes = res;
-        const data = res.data.recipes;
-        sessionStorage.setItem('seafoodData', JSON.stringify(data));
+        this.isloading = false;
+        this.cards.set(res.data.recipes);
       },
-      error: (err) => {
-        this.cardsRes = null;
-        this.cards = [];
+      error: () => {
+        this.isloading = false;
+        this.cards.set([]);
       },
     });
   }

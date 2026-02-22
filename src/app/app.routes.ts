@@ -58,9 +58,14 @@ export const routes: Routes = [
     title: 'Tasty Hub | Contacts',
   },
   {
-    path: '**',
+    path: '404',
     loadComponent: () =>
       import('../app/pages/not-found/not-found.component').then((c) => c.NotFoundComponent),
     title: '404',
+  },
+  {
+    path: '**',
+    redirectTo: '404',
+    pathMatch: 'full',
   },
 ];

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FixedLayoutComponent } from '../../shared-components/fixed-layout/fixed-layout.component';
+import { LoaderComponent } from '../../components/loader/loader.component';
 
 @Component({
   selector: 'app-home',

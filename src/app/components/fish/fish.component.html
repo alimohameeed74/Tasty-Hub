@@ -1,5 +1,9 @@
+@if (isloading) {
+  <app-loader></app-loader>
+}
+
 <div class="row g-3">
-  @for (card of cards; track $index) {
+  @for (card of cards(); track $index) {
     <div class="col-sm-6 col-lg-4 col-xl-3">
       <div class="card p-0">
         <img
@@ -9,7 +13,7 @@
           [alt]="card?.title"
         />
         <div class="card-body">
-          <h5 class="card-title fw-bold">{{ card?.title }}</h5>
+          <h5 class="card-title fw-bold">{{ card?.title?.split(' ')?.slice(0, 3)?.join(' ') }}</h5>
           <p class="card-text fw-normal">
             {{ card?.publisher }}
           </p>
@@ -20,5 +24,7 @@
         </div>
       </div>
     </div>
+  } @empty {
+    <app-empty-content></app-empty-content>
   }
 </div>
