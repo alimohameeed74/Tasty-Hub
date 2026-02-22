@@ -1,0 +1,13 @@
+/* Card component */
+.card {
+  --bs-card-title-color: rgb(33, 37, 41);
+  --bs-card-subtitle-color: rgb(33, 37, 41);
+  cursor: pointer;
+}
+.card:hover {
+  transform: translate(-5px, -5px);
+}
+/* End of Card component */
+/* Media Queries if needed */
+
+/* End of Media Queries */

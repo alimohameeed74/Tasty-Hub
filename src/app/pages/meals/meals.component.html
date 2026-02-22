@@ -1,3 +1,27 @@
-<p>
-  meals works!
-</p>
+<section class="meals">
+  <div class="container">
+    <ul class="nav justify-content-center rounded-3 py-1 mb-3">
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          aria-current="page"
+          routerLinkActive="rounded-3 bg-success text-white"
+          routerLink="./seafood"
+          >Seafood</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="rounded-3 bg-success text-white" routerLink="./pasta"
+          >Pasta</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="rounded-3 bg-success text-white" routerLink="./fish"
+          >Fish</a
+        >
+      </li>
+    </ul>
+
+    <router-outlet></router-outlet>
+  </div>
+</section>

@@ -1,0 +1,19 @@
+<div class="row g-3">
+  @for (card of cards; track $index) {
+    <div class="col-sm-6 col-lg-4 col-xl-3">
+      <div class="card p-0">
+        <img style="height: 282px" [src]="card.image_url" class="card-img-top" [alt]="card.title" />
+        <div class="card-body">
+          <h5 class="card-title fw-bold">{{ card.title }}</h5>
+          <p class="card-text fw-normal">
+            {{ card.publisher }}
+          </p>
+          <div class="d-flex justify-content-between align-items-center">
+            <button (click)="deleteRecipe()" class="btn btn-danger">Delete</button>
+            <button (click)="editRecipe()" class="btn btn-warning">Edit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</div>

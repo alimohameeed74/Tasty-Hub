@@ -24,7 +24,27 @@ export const routes: Routes = [
   {
     path: 'meals',
     loadComponent: () => import('../app/pages/meals/meals.component').then((c) => c.MealsComponent),
-    title: 'Tasty Hub | Meals',
+    children: [
+      { path: '', redirectTo: 'seafood', pathMatch: 'full' },
+      {
+        path: 'seafood',
+        loadComponent: () =>
+          import('../app/components/seafood/seafood.component').then((c) => c.SeafoodComponent),
+        title: 'Tasty Hub | Meals | Seafood',
+      },
+      {
+        path: 'pasta',
+        loadComponent: () =>
+          import('../app/components/pasta/pasta.component').then((c) => c.PastaComponent),
+        title: 'Tasty Hub | Meals | Pasta',
+      },
+      {
+        path: 'fish',
+        loadComponent: () =>
+          import('../app/components/fish/fish.component').then((c) => c.FishComponent),
+        title: 'Tasty Hub | Meals | Fish',
+      },
+    ],
   },
   {
     path: 'team',

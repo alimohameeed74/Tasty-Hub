@@ -29,7 +29,7 @@
 }
 /* End of navbar component */
 /* Media Queries if needed */
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .navbar ul {
     border-color: transparent !important;
   }

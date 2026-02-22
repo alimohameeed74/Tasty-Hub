@@ -1,0 +1,17 @@
+/* Meals component */
+
+.nav {
+  background-color: #212529 !important;
+  --bs-nav-link-color: white;
+  --bs-nav-link-hover-color: white;
+  width: 100%;
+}
+/* End of Meals component */
+/* Media Queries if needed */
+@media (min-width: 768px) {
+  .nav {
+    width: 400px;
+    margin: auto;
+  }
+}
+/* End of Media Queries */
