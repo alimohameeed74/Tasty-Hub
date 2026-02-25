@@ -1,3 +1,7 @@
+.loader-div {
+  z-index: 2000;
+}
+
 .loader {
   width: 48px;
   height: 48px;

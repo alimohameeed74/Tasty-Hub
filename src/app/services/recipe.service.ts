@@ -17,5 +17,5 @@ export class RecipeService {
     return this.httpclient.get<IrecDetails>(`${apiURL}/${id}`);
   }
   deleteRecipe(id: string) {}
-  editRecipe() {}
+  editRecipe(id: string) {}
 }
